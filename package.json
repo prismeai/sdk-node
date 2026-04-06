@@ -1,6 +1,6 @@
 {
-  "name": "@prismeai/sdk",
-  "version": "0.1.0",
+  "name": "@prisme.ai/sdk",
+  "version": "2.0.0",
   "description": "Official Prisme.ai Node.js SDK for Agent Factory and Storage APIs",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
