@@ -1,17 +1,17 @@
-# @prismeai/sdk
+# @prisme.ai/sdk-agents
 
 Official Node.js SDK for the [Prisme.ai](https://prisme.ai) Agent Factory and Storage APIs.
 
 ## Installation
 
 ```bash
-npm install @prismeai/sdk
+npm install @prisme.ai/sdk-agents
 ```
 
 ## Quick Start
 
 ```typescript
-import { PrismeAI } from '@prismeai/sdk';
+import { PrismeAI } from '@prisme.ai/sdk-agents';
 
 const client = new PrismeAI({
   apiKey: process.env.PRISMEAI_API_KEY,
@@ -210,7 +210,7 @@ import {
   RateLimitError,
   NotFoundError,
   ValidationError,
-} from '@prismeai/sdk';
+} from '@prisme.ai/sdk-agents';
 
 try {
   await client.agents.get('nonexistent');
