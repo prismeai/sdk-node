@@ -167,17 +167,19 @@ export class HttpClient {
   }
 
   private buildURL(path: string, query?: Record<string, unknown>): string {
-    // Strip leading slash to avoid overriding baseURL path (e.g. /v2)
     const cleanPath = path.replace(/^\/+/, '');
-    const url = new URL(cleanPath, this.baseURL + '/');
-    if (query) {
-      for (const [key, value] of Object.entries(query)) {
-        if (value !== undefined && value !== null) {
-          url.searchParams.set(key, String(value));
-        }
+    const fullURL = `${this.baseURL}/${cleanPath}`;
+
+    if (!query) return fullURL;
+
+    const params = new URLSearchParams();
+    for (const [key, value] of Object.entries(query)) {
+      if (value !== undefined && value !== null) {
+        params.set(key, String(value));
       }
     }
-    return url.toString();
+    const qs = params.toString();
+    return qs ? `${fullURL}?${qs}` : fullURL;
   }
 
   private getRetryDelay(attempt: number, lastError?: PrismeAIError): number {
